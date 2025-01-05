@@ -1,0 +1,21 @@
+form {
+  width: 500px;
+  margin: auto;
+  background-color: white;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+form input {
+  width: 100%;
+  outline: none;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+form button {
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  background-color: black;
+}
