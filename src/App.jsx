@@ -1,27 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Todos from "./components/Todos";
 import Form from "./components/Form";
 
 const App = () => {
-  const initalState = [
-    {
-      id: 1,
-      text: "Todo 1",
-      date: "12/02/2024",
-    },
-    {
-      id: 2,
-      text: "Todo 2",
-      date: "12/02/2024",
-    },
-    {
-      id: 3,
-      text: "Todo 3",
-      date: "12/02/2024",
-    },
-  ];
-  const [todos, setTodos] = useState(initalState);
+  // const initalState = [
+  //   {
+  //     id: 1,
+  //     text: "Todo 1",
+  //     date: "12/02/2024",
+  //   },
+  //   {
+  //     id: 2,
+  //     text: "Todo 2",
+  //     date: "12/02/2024",
+  //   },
+  //   {
+  //     id: 3,
+  //     text: "Todo 3",
+  //     date: "12/02/2024",
+  //   },
+  // ];
+  // const [todos, setTodos] = useState(initalState);
+
+  const [todos, setTodos] = useState(() => {
+    const localData = localStorage.getItem("pluralCodeTodos");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("pluralCodeTodos", JSON.stringify(todos));
+  }, [todos]);
 
   const deleteTodo = (id) => {
     let newTodos = todos.filter((todo) => todo.id !== id);

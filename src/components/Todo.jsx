@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/Todo.css";
-// import Button from "./Button";
 import { BiTrash } from "react-icons/bi";
 
 const Todo = ({ todo, deleteTodo }) => {

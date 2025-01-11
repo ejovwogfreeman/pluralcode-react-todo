@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "../css/Form.css";
+import Button from "./Button";
 
 const Form = ({ addTodo, showForm }) => {
   const [text, setText] = useState("");
+  const [err, setErr] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!text) {
-      alert("Please enter a text");
+      setErr("Please enter a text");
+      setTimeout(() => {
+        setErr("");
+      }, 3000);
     } else {
       addTodo({ text });
     }
@@ -25,9 +30,11 @@ const Form = ({ addTodo, showForm }) => {
               type="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
+              className={err ? "err-border" : ""}
             />
           </div>
-          <button>SUBMIT</button>
+          {err ? <span class="err">{err}</span> : ""}
+          <Button text="Submit" />
         </form>
       )}
     </>

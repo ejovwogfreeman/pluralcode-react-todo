@@ -11,6 +11,8 @@ form input {
   outline: none;
   padding: 5px;
   margin-top: 10px;
+  font-size: 18px;
+  border: 1px solid black;
 }
 
 form button {
@@ -18,4 +20,14 @@ form button {
   padding: 5px;
   margin-top: 10px;
   background-color: black;
+}
+
+.err {
+  color: red;
+  margin-top: 10px;
+  display: block;
+}
+
+.err-border {
+  border: 1px solid red;
 }

@@ -8,4 +8,6 @@ li {
 
 svg {
   cursor: pointer;
+  font-size: 25px;
+  color: red;
 }
